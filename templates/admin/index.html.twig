@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/admin/background-index.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/admin/background-index.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: "Panel d'administration", description: ''}, with_context=false) }}
+
+    <section class="admin-menu">
+        <a href="{{ path('app_admin_liste_clients') }}">Voir les clients<img src="/img/arrow.svg" alt="arrow"></a>
+        <a href="{{ path('app_admin_liste_billets') }}">Voir les billets<img src="/img/arrow.svg" alt="arrow"></a>
+        <a href="{{ path('app_admin_liste_evenements') }}">Voir les évènements<img src="/img/arrow.svg" alt="arrow"></a>
+        <a href="{{ path('app_admin_liste_animaux') }}">Voir les animaux<img src="/img/arrow.svg" alt="arrow"></a>
+        <a href="{{ path('app_admin_liste_enclos') }}">Voir les enclos<img src="/img/arrow.svg" alt="arrow"></a>
+    </section>
+{% endblock %}

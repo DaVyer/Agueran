@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emplois{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="../img/miscellaneous/background-emplois.jpg" as="image">
+    <link rel="preload" href="../img/logo.png" as="image">
+    <link rel="preload" href="../img/ticket.svg" as="image">
+    <link rel="preload" href="../img/reservation.svg" as="image">
+    <link rel="preload" href="../img/plan.svg" as="image">
+    <link rel="preload" href="../img/animals.svg" as="image">
+    <link rel="preload" href="../img/program.svg" as="image">
+    <link rel="preload" href="../img/ticket.svg" as="image">
+    <link rel="preload" href="../img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("../img/miscellaneous/background-emplois.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Emplois', description: '', button: false}, with_context=false) }}
+
+    <section class="text">
+        <div>
+            <h2><u>Liste de postes disponibles</u></h2>
+            <p>Rejoignez-nous dans notre mission de préserver la nature, tout en contribuant à créer des expériences inoubliables pour nos visiteurs.</p>
+            <p>Explorez nos opportunités d'emploi diversifiées et découvrez comment vous pouvez faire partie d'une équipe dévouée qui travaille ensemble pour promouvoir la biodiversité, l'éducation environnementale et la durabilité.</p>
+            <h2><u>Nos postes</u></h2>
+            <ul>
+                <li><u>Soigneur animalier :</u>
+                    Responsable des soins quotidiens aux animaux, y compris la nourriture, la propreté des enclos, les soins médicaux de base et l'enrichissement environnemental.
+                </li>
+                <br>
+                <li><u>Vétérinaire :</u>
+                    Fournit des soins médicaux aux animaux, participe aux programmes de prévention des maladies, et travaille en collaboration avec l'équipe de soigneurs.
+                </li>
+                <br>
+                <li><u>Éducateur animalier :</u>
+                    Organise des programmes éducatifs pour les visiteurs, les écoles et les groupes, et participe à des présentations sur la faune sauvage.
+                </li>
+                <br>
+                <li><u>Responsable de la conservation :</u>
+                    Impliqué dans la planification et la mise en œuvre des programmes de conservation, la collecte de fonds et la sensibilisation du public.
+                </li>
+                <br>
+                <li><u>Guide touristique :</u>
+                    Conduit des visites guidées pour les visiteurs du zoo, partage des informations sur les animaux et leurs habitats naturels.
+                </li>
+                <br>
+                <li><u>Photographe animalier :</u>
+                    Captures des images de qualité des animaux pour un usage promotionnel, éducatif et de sensibilisation.
+                </li>
+                <br>
+                <li><u>Jardinier paysagiste :</u>
+                    Entretient les espaces verts du zoo pour créer un environnement agréable et adapté aux besoins des animaux.
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

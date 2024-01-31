@@ -1,0 +1,12 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block main %}
+
+{{ render_chart(touristBookingChart) }}
+{{ render_chart(touristBookingChartByMonth) }}
+
+{% endblock %}

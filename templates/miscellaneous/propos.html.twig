@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/miscellaneous/background-propos.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/miscellaneous/background-propos.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'A propos', description: 'Afin d’en savoir un peu plus sur nous !'}, with_context=false) }}
+    <section class="text">
+        <div>
+            <h2><u>Une petite présentation</u></h2>
+            <p>Bienvenue au Zoo d'Agueran, où la magie de la nature prend vie ! Notre engagement envers la conservation de la faune et la sensibilisation du public à la diversité de la faune font de notre zoo un endroit spécial pour tous.</p>
+            <h2><u>Notre histoire</u></h2>
+            <p>Le Zoo d'Agueran a été fondé en 1984 par des passionnés de la faune et de la flore. Notre vision, comme bon nombre de zoos, était de créer un environnement où les espèces menacées seraient protégées et où chaque visiteur pourrait se rendre compte de la chance qu'il a de voir ces espèces.</p>
+            <h2><u>Notre mission</u></h2>
+            <p>L’objectif de notre mission est la conservation de la biodiversité. Nous nous engageons à protéger les espèces menacées, à promouvoir la recherche scientifique et à sensibiliser le public quant a l'importance de protéger la Terre et ses habitants.</p>
+            <h2><u>Notre équipe</u></h2>
+            <p>Notre équipe passionnée est composée de biologistes, de soigneurs d’animaux, et d’éducateurs. Chaque membre de notre équipe prodigue les meilleurs soins à nos animaux et contribue à rendre votre visite agréable et enrichissante.</p>
+            <h2><u>Pourquoi nous faisons ce que nous faisons</u></h2>
+            <p>Nous ne voulons pas seulement exposer des animaux, nous voulons inspirer la prochaine génération de défenseurs de l'environnement. En proposant des expériences éducatives interactives, nous espérons favoriser un amour profond et durable de la faune et de l'environnement.</p>
+            <p>Rejoignez-nous dans notre quête pour préserver la beauté de notre planète et permettre à tous les êtres vivants de prospérer. Au Zoo d’Agueran, chaque visite compte.</p>
+        </div>
+    </section>
+{% endblock %}

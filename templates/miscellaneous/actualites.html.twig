@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="../img/miscellaneous/background-actualites.jpg" as="image">
+    <link rel="preload" href="../img/logo.png" as="image">
+    <link rel="preload" href="../img/ticket.svg" as="image">
+    <link rel="preload" href="../img/reservation.svg" as="image">
+    <link rel="preload" href="../img/plan.svg" as="image">
+    <link rel="preload" href="../img/animals.svg" as="image">
+    <link rel="preload" href="../img/program.svg" as="image">
+    <link rel="preload" href="../img/ticket.svg" as="image">
+    <link rel="preload" href="../img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("../img/miscellaneous/background-actualites.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .news_img {
+        display: flex;
+        justify-content: center;
+    }
+
+    .news_img > img {
+        display: flex;
+        width: 500px;
+        padding: 10px 20px;
+        border-radius: 15px;
+        background: var(--green);
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Actualités', description: '', button: false}, with_context=false) }}
+
+    <section class="text">
+        <div>
+            <h2><u>News</u></h2>
+            <p>Très prochainement, notre zoo accueillera un nouveau résident majestueux, le roi de la savane, un lion imposant ! Cette addition exceptionnelle à notre famille animale renforcera notre engagement envers la conservation des espèces tout en offrant à nos visiteurs une expérience unique et éducative.</p>
+            <div class="news_img">
+                <img src="/img/animals/9.png" alt="Image du lion" loading="lazy">
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Révision{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/authentification/background-revision.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/authentification/background-revision.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Modification de votre Profil', description: '', modifier: true}, with_context=false) }}
+    <h1>Édition de {{ user.nom }}, {{ user.prenom }}</h1>
+
+    <section class="text" id="compte">
+        <div class="header">
+            <p><strong>{{ user.prenom|e }} {{ user.nom|e }}</strong></p>
+        </div>
+        {{ include('authentification/_form.html.twig', {form: form, submit_label: 'Modifier'}, with_context=false) }}
+    </section>
+{% endblock %}

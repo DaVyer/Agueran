@@ -1,0 +1,137 @@
+#reservations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 50px;
+
+    color: var(--black);
+}
+
+.reservations {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    max-width: 1115px;
+    width: 100%;
+}
+
+.reservations-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+}
+
+.reservations-box {
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid var(--green);
+    border-radius: 15px;
+    width: 100%;
+}
+
+.reservations p {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+.reservations h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reservations-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 20px;
+
+    background: var(--light-green);
+    border-radius: 20px;
+}
+
+.reservations-item-label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.reservations-item-label > svg {
+    width: 30px;
+    height: 30px;
+    color: var(--black);
+}
+
+.reservations-item-label > .reservations-item-label-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reservations-item-label > .reservations-item-label-category > * {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    width: 100%;
+}
+
+.reservations-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    margin: 0 20px 20px 20px;
+}
+
+.reservations-small-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+
+    color: var(--black);
+    font-style: italic;
+}
+
+.reservations a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.reservations a:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--green);
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.reservations a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1) translateY(1px);
+}
+
+@media screen and (min-width: 1024px) {
+    .reservations-row {
+        flex-direction: row;
+    }
+
+    .reservations-product-label > .reservations-product-label-category {
+        flex-direction: row;
+    }
+}

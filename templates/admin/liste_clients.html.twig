@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des clients{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/admin/background-liste-clients.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/admin/background-liste-clients.jpg"), lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Liste des clients', description: ''}, with_context=false) }}
+
+    <section id="liste">
+        <div class="admin-liste">
+            <h2>Liste des clients</h2>
+            <p>
+                <strong>{{ clients | length }}</strong> clients répondent aux critères de recherche !
+            </p>
+            <div class="admin-box">
+                <div class="admin-filtre">
+                    <h3>Filtrer</h3>
+                    <form>
+                        <div class="admin-filtre-filtres">
+                            <label>
+                                Nom
+                                <input type="text" name="nom" placeholder="Nom">
+                            </label>
+                            <label>
+                                Prénom
+                                <input type="text" name="prenom" placeholder="Prénom">
+                            </label>
+                            <label>
+                                Email
+                                <input type="text" name="email" placeholder="Email">
+                            </label>
+                        </div>
+                        <button class="button" type="submit">Filtrer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="admin-box">
+                {% if clients %}
+                <div class="admin-item">
+                    <div class="admin-item-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <path d="M5 21.25V20H10.9375V21.25H5ZM5 15.625V14.375H17.9562V15.625H5ZM5 10V8.75H25V10H5Z" fill="black"></path>
+                        </svg>
+                        <div class="admin-item-label-category">
+                            <span class="admin-fixed-text">Nom Prénom</span>
+                            <span class="admin-fixed-text-large">Adresse</span>
+                            <span class="admin-fixed-text-large">Email</span>
+                            <span class="admin-fixed-text">Téléphone</span>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="admin-item">
+                    <p>Aucun client ne correspond aux critères de recherche.</p>
+                </div>
+                {% endif %}
+                {% for client in clients %}
+                    <div class="admin-item">
+                        <div class="admin-item-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                <path d="M26.8574 24.9609C25.0047 21.7594 22.0961 19.5129 18.7164 18.5601C20.3595 17.7249 21.6735 16.3606 22.4464 14.6872C23.2192 13.0138 23.406 11.1289 22.9766 9.33637C22.5471 7.54385 21.5265 5.9482 20.0792 4.80671C18.632 3.66523 16.8424 3.04443 14.9992 3.04443C13.156 3.04443 11.3664 3.66523 9.91916 4.80671C8.4719 5.9482 7.45126 7.54385 7.02182 9.33637C6.59237 11.1289 6.77915 13.0138 7.55204 14.6872C8.32493 16.3606 9.63887 17.7249 11.282 18.5601C7.90232 19.5117 4.99373 21.7582 3.141 24.9609C3.09012 25.0409 3.05596 25.1304 3.04057 25.224C3.02518 25.3176 3.02888 25.4133 3.05144 25.5054C3.074 25.5975 3.11496 25.6841 3.17185 25.76C3.22875 25.8358 3.3004 25.8994 3.3825 25.9469C3.4646 25.9943 3.55545 26.0247 3.64959 26.0361C3.74373 26.0476 3.83921 26.0398 3.93028 26.0134C4.02135 25.987 4.10614 25.9424 4.17955 25.8824C4.25295 25.8223 4.31345 25.7481 4.3574 25.664C6.60857 21.7746 10.5859 19.4531 14.9992 19.4531C19.4125 19.4531 23.3898 21.7746 25.641 25.664C25.685 25.7481 25.7455 25.8223 25.8189 25.8824C25.8923 25.9424 25.977 25.987 26.0681 26.0134C26.1592 26.0398 26.2547 26.0476 26.3488 26.0361C26.4429 26.0247 26.5338 25.9943 26.6159 25.9469C26.698 25.8994 26.7697 25.8358 26.8265 25.76C26.8834 25.6841 26.9244 25.5975 26.947 25.5054C26.9695 25.4133 26.9732 25.3176 26.9578 25.224C26.9424 25.1304 26.9083 25.0409 26.8574 24.9609ZM8.20233 11.25C8.20233 9.90568 8.60096 8.59158 9.34781 7.47384C10.0947 6.3561 11.1562 5.48492 12.3981 4.97049C13.6401 4.45605 15.0067 4.32145 16.3252 4.5837C17.6437 4.84596 18.8548 5.4933 19.8053 6.44386C20.7559 7.39442 21.4032 8.60551 21.6655 9.92397C21.9277 11.2424 21.7931 12.6091 21.2787 13.851C20.7643 15.093 19.8931 16.1545 18.7753 16.9014C17.6576 17.6482 16.3435 18.0469 14.9992 18.0469C13.1972 18.0447 11.4697 17.3279 10.1955 16.0537C8.92129 14.7795 8.2045 13.052 8.20233 11.25Z" fill="black"></path>
+                            </svg>
+                            <div class="admin-item-label-category">
+                                <span class="admin-fixed-text"><strong>{{ client.nom }} {{ client.prenom }}</strong></span>
+                                <span class="admin-fixed-text-large">{{ client.adresse }}<br>{{ client.ville }}, {{ client.codePostal }}<br>{{ client.pays | country_name('FR') }}</span>
+                                <span class="admin-fixed-text-large">{{ client.email }}</span>
+                                <span class="admin-fixed-text">{{ client.telephone }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

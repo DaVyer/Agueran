@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Règlement{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="../img/miscellaneous/background-reglement.jpg" as="image">
+    <link rel="preload" href="../img/logo.png" as="image">
+    <link rel="preload" href="../img/ticket.svg" as="image">
+    <link rel="preload" href="../img/reservation.svg" as="image">
+    <link rel="preload" href="../img/plan.svg" as="image">
+    <link rel="preload" href="../img/animals.svg" as="image">
+    <link rel="preload" href="../img/program.svg" as="image">
+    <link rel="preload" href="../img/ticket.svg" as="image">
+    <link rel="preload" href="../img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("../img/miscellaneous/background-reglement.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Règlement', description: '', button: false}, with_context=false) }}
+
+    <section class="text">
+        <div>
+            <h2>
+                <u>Règlement du Zoo d'Agueran</u>
+            </h2>
+            <ol>
+                <li>
+                    <u>Respect des Animaux :</u>
+                    <ul>
+                        <li>
+                            Ne pas nourrir les animaux sans autorisation.
+                        </li>
+                        <li>
+                            Respecter les barrières de sécurité et les règles concernant l'interaction avec les animaux.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Conduite Responsable :</u>
+                    <ul>
+                        <li>
+                            Maintenir une conduite calme et respectueuse envers le personnel, les autres visiteurs et les animaux.
+                        </li>
+                        <li>
+                            Suivre les indications du personnel du zoo en cas d'évacuation ou d'urgence.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Interdiction des Objets Dangereux :</u>
+                    <ul>
+                        <li>
+                            Ne pas apporter d'objets tranchants, de nourriture pour les animaux, ou tout autre objet potentiellement dangereux.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Respect de l'Environnement :</u>
+                    <ul>
+                        <li>
+                            Jeter les déchets dans les poubelles prévues à cet effet.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Supervision des Enfants :</u>
+                    <ul>
+                        <li>
+                            Les enfants doivent être sous la surveillance constante d'un adulte.
+                        </li>
+                        <li>
+                            Ne pas porter d'enfants sur les épaules dans les zones à risque.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Photographie et Vidéo :</u>
+                    <ul>
+                        <li>
+                            Les photos et vidéos à des fins personnelles sont autorisées, sauf indication contraire.
+                        </li>
+                        <li>
+                            Les flashs sont interdits dans certaines zones spécifiées.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Alcool et Drogues :</u>
+                    <ul>
+                        <li>
+                            L'usage de drogues et la consommation d'alcool sont strictement interdits.
+                        </li>
+                        <li>
+                            Les visiteurs en état d'ébriété seront expulsés du zoo.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Interdiction des Animaux de Compagnie :</u>
+                    <ul>
+                        <li>
+                            Les animaux de compagnie ne sont pas autorisés, à l'exception des chiens d'assistance.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Respect des Installations :</u>
+                    <ul>
+                        <li>
+                            Ne pas grimper sur les clôtures, barrières ou installations.
+                        </li>
+                        <li>
+                            Suivre les itinéraires désignés et les panneaux d'orientation.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Interdiction des Patins à Roulettes et Vélos :</u>
+                    <ul>
+                        <li>
+                            Les patins à roulettes, trottinettes et vélos ne sont pas autorisés à l'intérieur du zoo.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Comportement Interdit :</u>
+                    <ul>
+                        <li>
+                            Tout comportement perturbateur, agressif ou offensant envers d'autres visiteurs ou le personnel ne sera pas toléré.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Boutiques et Restaurants :</u>
+                    <ul>
+                        <li>
+                            Respecter les règles spécifiques à chaque boutique ou restaurant.
+                        </li>
+                        <li>
+                            Ne pas apporter de nourriture extérieure dans les zones de restauration du zoo.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li><u>Premiers Secours :</u>
+                    <ul>
+                        <li>
+                            En cas de blessure ou de malaise, contacter immédiatement le personnel du zoo.
+                        </li>
+                        <li>
+                            Utiliser les installations de premiers secours désignées.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+{% endblock %}

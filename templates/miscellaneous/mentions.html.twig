@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions légales{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/miscellaneous/background-mentions.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/miscellaneous/background-mentions.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Mentions légales', description: '', button: false}, with_context=false) }}
+
+    <section class="text">
+        <div>
+            <p><strong><u>Nom du zoo :</u></strong> Zoo d’Agueran</p>
+            <p><strong><u>Forme juridique :</u></strong> SAS</p>
+            <p><strong><u>Adresse du siège social :</u></strong> 3 rue de Paris, Agueran - 51802
+            <p><strong><u>Téléphone :</u></strong> +33 03 26 91 30 02
+            <p><strong><u>Email :</u></strong> mail@zoo-agueran.com
+            <p><strong><u>Directeur de la publication :</u></strong>
+            <p><strong><u>RCS :</u></strong> 123 456 789
+            <p><strong><u>Numéro de TVA :</u></strong> FR12345678901
+            <p><strong><u>Adresse de l'hébergeur :</u></strong> 27 Rue du Château, Paris - 75001
+            <p><strong><u>Téléphone de l'hébergeur :</u></strong> 01 23 45 67 89
+            <h2><u>Propriété intellectuelle</u></h2>
+            <p>Le présent site et son contenu sont la propriété exclusive du Zoo d’Agueran. Toute reproduction ou représentation totale ou partielle de ce site, par quelque procédé que ce soit, sans l'autorisation expresse du Zoo d'Agueran, est interdite et constituerait une contrefaçon sanctionnée par les articles L. 335-2 et suivants du Code de la propriété intellectuelle.</p>
+            <h2><u>Protection des données personnelles</u></h2>
+            <p>Conformément à la réglementation en vigueur, notamment la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, le traitement des données à caractère personnel effectué à partir de ce site a fait l'objet d'une déclaration auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) sous le numéro 1234567.</p>
+            <h2><u>Responsabilité</u></h2>
+            <p>Le Zoo d’Agueran décline toute responsabilité quant au contenu des sites externes liés à celui-ci.</p>
+            <h2><u>Droit applicable</u></h2>
+            <p>Le présent site est soumis au droit français.</p>
+        </div>
+    </section>
+{% endblock %}

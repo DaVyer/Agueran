@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confidentialité{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/miscellaneous/background-confidentialite.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/miscellaneous/background-confidentialite.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Confidentialité', description: '', button: false}, with_context=false) }}
+
+    <section class="text">
+        <div>
+            <h2><u>Politique de confidentialité du Zoo d'Agueran, Dernière mise à jour : 14/12/2023</u></h2>
+            <p>Bienvenue sur le site web du Zoo d’Agueran. La confidentialité de nos visiteurs est une priorité pour nous. Cette politique de confidentialité explique comment nous recueillons, utilisons, divulguons et protégeons les informations que vous nous fournissez lors de votre visite sur notre site.</p>
+            <h2><u>Collecte d'informations personnelles</u></h2>
+            <p>Lorsque vous utilisez notre site, vous pouvez choisir de nous fournir des informations personnelles telles que votre nom, votre adresse e-mail, votre numéro de téléphone, et d'autres informations similaires lorsque vous remplissez des formulaires sur notre site.</p>
+            <h2><u>Informations collectées automatiquement</u></h2>
+            <p>Nous pouvons également collecter automatiquement certaines informations lorsque vous visitez notre site, telles que votre adresse IP, le type de navigateur que vous utilisez, les pages que vous consultez, et d'autres données de navigation.</p>
+            <h2><u>Utilisation des informations</u></h2>
+            <p>Nous utilisons les informations que vous nous fournissez pour améliorer votre expérience sur notre site, personnaliser votre interaction avec nous, et fournir un contenu et des offres qui correspondent à vos intérêts. Les informations collectées automatiquement nous aident à analyser les tendances d'utilisation du site, à gérer le site, et à améliorer la sécurité.</p>
+            <h2><u>Partage d'informations</u></h2>
+            <p>Nous ne vendons, n'échangeons ni ne louons vos informations personnelles à des tiers sans votre consentement, sauf dans les cas prévus par la loi.</p>
+            <h2><u>Sécurité des informations</u></h2>
+            <p>Nous mettons en œuvre des mesures de sécurité raisonnables pour protéger les informations que nous recueillons. Cependant, aucune transmission de données sur Internet n'est totalement sécurisée. Par conséquent, bien que nous nous efforcions de protéger vos informations, nous ne pouvons garantir la sécurité absolue de celles-ci.</p>
+            <h2><u>Cookies et technologies similaires</u></h2>
+            <p>Nous utilisons des cookies et d'autres technologies similaires pour améliorer votre expérience sur notre site. Vous pouvez ajuster les paramètres de votre navigateur pour refuser les cookies, mais cela pourrait affecter votre expérience utilisateur.</p>
+            <h2><u>Modifications de la politique de confidentialité</u></h2>
+            <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications seront effectives dès leur publication sur cette page. Nous vous encourageons à consulter régulièrement cette page pour rester informé(e) de tout changement.</p>
+            <h2><u>Contactez-nous</u></h2>
+            <p>Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, veuillez nous contacter à l'adresse suivante : mail@zoo-agueran.com.</p>
+        </div>
+    </section>
+{% endblock %}

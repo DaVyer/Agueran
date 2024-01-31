@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des animaux{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/admin/background-liste-animaux.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/admin/background-liste-animaux.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Liste des animaux', description: ''}, with_context=false) }}
+
+    <section id="liste">
+        <div class="admin-liste">
+            <h2>Liste des animaux</h2>
+            <p>
+                <strong>{{ animaux | length }}</strong> animaux répondent aux critères de recherche !
+            </p>
+            <div class="admin-box">
+                <div class="admin-filtre">
+                    <h3>Filtrer</h3>
+                    <form>
+                        <div class="admin-filtre-filtres">
+                            <label>
+                                Nom
+                                <input type="text" name="nomAnimal" placeholder="Nom">
+                            </label>
+                            <label>
+                                Description
+                                <input type="text" name="descAnimal" placeholder="Description">
+                            </label>
+                            <label>
+                                Lieu d'origine
+                                <input type="text" name="lieuOriginaireAnimal" placeholder="Lieu d'origine">
+                            </label>
+                        </div>
+                        <button class="button" type="submit">Filtrer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="admin-box">
+                {% if animaux %}
+                <div class="admin-item">
+                    <div class="admin-item-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <path d="M5 21.25V20H10.9375V21.25H5ZM5 15.625V14.375H17.9562V15.625H5ZM5 10V8.75H25V10H5Z" fill="black"></path>
+                        </svg>
+                        <div class="admin-item-label-category">
+                            <span class="admin-fixed-text">Nom</span>
+                            <span class="admin-fixed-text-large">Description</span>
+                            <span class="admin-fixed-text">Lieu d'origine</span>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="admin-item">
+                    <p>Aucun animal ne correspond aux critères de recherche.</p>
+                </div>
+                {% endif %}
+                {% for animal in animaux %}
+                    <div class="admin-item">
+                        <div class="admin-item-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M29.5101 9.28907C29.2721 9.17985 29.0186 9.12419 28.7628 9.12501H28.736C27.3853 9.14845 25.8706 10.6242 25.0757 12.8563C24.1228 15.5266 24.5615 18.2586 26.0628 18.9609C26.3006 19.0702 26.5539 19.1258 26.8095 19.125C28.1668 19.125 29.7023 17.6406 30.5039 15.3938C31.4501 12.7234 31.0048 9.99142 29.5101 9.28907Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                <path d="M20.7954 19.7094C18.9338 16.1055 18.1302 14.75 16.0007 14.75C13.8712 14.75 13.061 16.1141 11.1994 19.7094C9.60561 22.7844 6.38462 23.0406 5.58104 25.6523C5.41802 26.1307 5.33615 26.6415 5.33997 27.1562C5.33997 29.2805 6.73283 31 8.44712 31C10.5766 31 13.4762 29.0164 16.0074 29.0164C18.5387 29.0164 21.4248 31 23.5543 31C25.2686 31 26.6548 29.2812 26.6548 27.1562C26.6563 26.641 26.5722 26.1302 26.407 25.6523C25.6034 23.0312 22.3891 22.7844 20.7954 19.7094Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                <path d="M11.7484 11.3125C11.8381 11.3126 11.9276 11.3048 12.0162 11.2891C13.5705 11.0258 14.5408 8.51328 14.1886 5.67578C13.8571 3.00078 12.4656 1 11.0104 1C10.9208 0.999916 10.8312 1.00775 10.7426 1.02344C9.18834 1.28672 8.21802 3.79922 8.57025 6.63672C8.90173 9.30391 10.2932 11.3125 11.7484 11.3125Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                <path d="M23.4268 6.63672C23.779 3.79922 22.8087 1.28672 21.2545 1.02344C21.1658 1.00775 21.0763 0.999916 20.9866 1C19.5315 1 18.1426 3.00078 17.8105 5.67578C17.4583 8.51328 18.4286 11.0258 19.9828 11.2891C20.0715 11.3048 20.161 11.3126 20.2507 11.3125C21.7058 11.3125 23.0973 9.30391 23.4268 6.63672Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                <path d="M5.93985 18.9609C7.43918 18.2578 7.87713 15.5234 6.92556 12.8563C6.12467 10.6094 4.59051 9.12501 3.23515 9.12501C2.97962 9.12419 2.72627 9.17986 2.4885 9.28907C0.989163 9.9922 0.551216 12.7266 1.50278 15.3938C2.30368 17.6406 3.83783 19.125 5.19319 19.125C5.44872 19.1258 5.70208 19.0702 5.93985 18.9609Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                            </svg>
+                            <div class="admin-item-label-category">
+                                <span class="admin-fixed-text"><strong>{{ animal.nomAnimal }}</strong></span>
+                                <span class="admin-fixed-text-large">{{ animal.descAnimal }}</span>
+                                <span class="admin-fixed-text">{{ animal.lieuOriginaireAnimal }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

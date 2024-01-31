@@ -1,0 +1,251 @@
+#billetterie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 50px;
+
+    color: var(--black);
+}
+
+.billetterie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    max-width: 1115px;
+    width: 100%;
+}
+
+.billetterie-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+}
+
+.billetterie-box {
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid var(--green);
+    border-radius: 15px;
+    width: 100%;
+
+    padding-top: 20px
+}
+
+.billetterie-product {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 20px;
+    margin: 0 20px 20px 20px;
+
+    background: var(--light-green);
+    border-radius: 20px;
+}
+
+.billetterie-product-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.billetterie-product-label > svg {
+    width: 30px;
+    height: 30px;
+    color: var(--black);
+}
+
+.billetterie-product-label > .billetterie-product-label-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.billetterie-recap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: unset;
+    padding: 20px;
+}
+
+.billetterie-recap-box .quantity-label, .billetterie-product-label-category .price, .billetterie-recap-box .total {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 120%;
+}
+
+.billetterie p {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+.billetterie h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.billetterie input[type="number"] {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.billetterie input[type="number"]:focus,
+.billetterie input[type="number"]:hover,
+.billetterie input[type="date"]:focus,
+.billetterie input[type="date"]:hover {
+    transform: scale(1.1);
+}
+
+.billetterie input[type="number"]::-webkit-inner-spin-button,
+.billetterie input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+}
+
+.billetterie input[type="number"]::-webkit-inner-spin-button,
+.billetterie input[type="number"]::-webkit-outer-spin-button {
+    height: 2em;
+    width: 2em;
+}
+
+.billetterie input[type="date"] {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.billetterie .button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    height: 50px;
+    margin: 0 20px 20px 20px;
+    padding: 20px 30px 20px 30px;
+
+    border: none;
+    background: var(--green);
+    border-radius: 20px;
+
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 120%;
+
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.billetterie .button:hover {
+    transform: scale(1.01);
+}
+
+.billetterie .button img[alt="arrow-right"] {
+    transition: all 0.3s ease-in-out;
+}
+
+.billetterie .button:hover img[alt="arrow-right"] {
+    transform: translateX(20px);
+}
+
+.billetterie-text {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 20px 20px 20px;
+}
+
+.billetterie-small-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+
+    color: var(--black);
+    font-style: italic;
+}
+
+.billetterie a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+.billetterie a:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--green);
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.billetterie a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1) translateY(1px);
+}
+
+.billetterie-fixed-text {
+    width: 300px
+}
+
+.error {
+    background-color: #b0413e;
+    border-color: #b0413e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+@media screen and (min-width: 1024px) {
+    .billetterie-row {
+        flex-direction: row;
+    }
+
+    .billetterie-product {
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .billetterie-product-label > .billetterie-product-label-category {
+        flex-direction: row;
+    }
+
+    .billetterie input[type="number"] {
+        width: 50px;
+        height: unset;
+    }
+
+    .billetterie-recap {
+        width: 30%;
+    }
+}

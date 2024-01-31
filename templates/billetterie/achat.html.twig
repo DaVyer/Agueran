@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Billetterie{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/billetterie/background-achat.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/billetterie.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/billetterie/background-achat.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Billetterie', description: 'Merci pour votre achat !', billetterie: true}, with_context=false) }}
+
+    <section id="billetterie">
+        <div class="billetterie">
+            <h2>Billets</h2>
+            <div class="billetterie-box">
+                <div class="billetterie-product">
+                    <div class="billetterie-product-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <path d="M5 21.25V20H10.9375V21.25H5ZM5 15.625V14.375H17.9562V15.625H5ZM5 10V8.75H25V10H5Z" fill="black"></path>
+                        </svg>
+                        <div class="billetterie-product-label-category">
+                            <span class="billetterie-fixed-text">Type de billet</span>
+                            <span class="billetterie-fixed-text">Code de réservation</span>
+                            <span class="billetterie-fixed-text">Date de réservation</span>
+                            <span>Prix</span>
+                        </div>
+                    </div>
+                </div>
+                {% for billet in billets %}
+                <div class="billetterie-product">
+                    <div class="billetterie-product-label">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Frame 13">
+                                <g id="Group 1">
+                                    <g id="Group">
+                                        <path id="Vector" d="M26.2903 8.67742C25.6111 9.35664 25.0687 9.58064 24.0323 9.58064C21.9594 9.58064 20.4194 8.04065 20.4194 5.96774C20.4194 4.93129 20.6434 4.3889 21.3226 3.70968L18.6129 1L1 18.6129L3.70968 21.3226C4.3889 20.6434 4.93129 20.4194 5.96774 20.4194C8.04065 20.4194 9.58064 21.9594 9.58064 24.0323C9.58064 25.0687 9.35664 25.6111 8.67742 26.2903L11.3871 29L29 11.3871L26.2903 8.67742Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                        <path id="Vector_2" d="M12.29 7.32263L14.0965 9.12908" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                        <path id="Vector_3" d="M20.8711 15.9031L22.6775 17.7095" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                    </g>
+                                    <path id="Vector_4" d="M15 10.0321L16.8065 11.8386" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                    <path id="Vector_5" d="M18.1611 13.1936L19.9676 15.0001" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        <div class="billetterie-product-label-category">
+                            <span class="billetterie-fixed-text">{{ billet.type }}</span>
+                            <span class="billetterie-fixed-text">N°{{ billet.code }}</span>
+                            <span class="billetterie-fixed-text">{{ billet.getDateReservation()|date('d/m/Y') }}</span>
+                            {% if billet.type == 'Plein tarif' %}
+                                <span class="price">20€</span>
+                            {% elseif billet.type == 'Tarif réduit' %}
+                                <span class="price">15€</span>
+                            {% elseif billet.type == 'Moins de 10 ans' %}
+                                <span class="price">5€</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

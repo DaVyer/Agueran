@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/miscellaneous/background-faq.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/miscellaneous/background-faq.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'FAQ', description: 'Voici une petite sélection des questions que vous posez le plus !', button: false}, with_context=false) }}
+
+    <section class="text">
+        <div class="header">
+            <p><strong>Foire aux questions concernant notre Zoo :</strong></p>
+        </div>
+        <div>
+            <h2><u>Q1. Y a-t-il une heure spéciale où les lions organisent des séances de bronzage ?</u></h2>
+            <p>Oui, nos lions sont très conscients de leur apparence. Chaque jour, de 14h à 15h, la savane est fermée pour que nos lions puissent profiter de leur séance exclusive de bronzage. Ils portent même des lunettes de soleil spéciales pour rester à la pointe de la mode.</p>
+            <h2><u>Q2 : Quels efforts le zoo fait-il en matière de conservation ?</u></h2>
+            <p>Notre engagement envers la conservation de la faune est au cœur de notre mission. Nous soutenons des programmes de conservation à l'échelle mondiale tout en contribuant financièrement à des initiatives de préservation des habitats naturels.</p>
+            <h2><u>Q3 : Comment le zoo prend-il soin du bien-être des animaux ?</u></h2>
+            <p>Le bien-être des animaux est notre priorité absolue. Nous offrons à nos animaux des environnements stimulants, de très bon soins vétérinaires , une alimentation riche et adaptée à chaque espèce, et des programmes d'enrichissement pour favoriser les comportements naturels</p>
+            <h2><u>Q4 : Quelles mesures sont prises pour assurer la sécurité des visiteurs ?</u></h2>
+            <p>La sécurité de nos visiteurs est un facteur non négligeable et qui est d’une haute importance. Nous avons des protocoles stricts en place, des équipes de sécurité formées, des barrières appropriées et des panneaux d'information clairs. Nos employés sont formés pour réagir rapidement et efficacement en cas de besoin, assurant ainsi un environnement sûr pour tous.</p>
+        </div>
+    </section>
+{% endblock %}

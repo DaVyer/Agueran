@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des billets{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/admin/background-liste-billets.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/admin/background-liste-billets.jpg"), lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Liste des billets', description: ''}, with_context=false) }}
+
+    <section id="liste">
+        <div class="admin-liste">
+            <h2>Billets</h2>
+            <p>
+                <strong>{{ billets | length }}</strong> billets répondent aux critères de recherche !
+            </p>
+            <div class="admin-box">
+                <div class="admin-filtre">
+                    <h3>Filtrer</h3>
+                    <form>
+                        <div class="admin-filtre-filtres">
+                            <label>
+                                Type de billet
+                                <select name="type">
+                                    <option value="Tous">Tous</option>
+                                    <option value="Plein tarif">Plein tarif</option>
+                                    <option value="Tarif réduit">Tarif réduit</option>
+                                    <option value="Moins de 10 ans">Moins de 10 ans</option>
+                                </select>
+                            </label>
+                            <label>
+                                Date de réservation
+                                <input type="date" name="dateReservation">
+                            </label>
+                            <label>
+                                Date d'achat
+                                <input type="date" name="dateVisite">
+                            </label>
+                        </div>
+                        <button class="button" type="submit">Filtrer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="admin-box">
+                {% if billets %}
+                <div class="admin-item">
+                    <div class="admin-item-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <path d="M5 21.25V20H10.9375V21.25H5ZM5 15.625V14.375H17.9562V15.625H5ZM5 10V8.75H25V10H5Z" fill="black"></path>
+                        </svg>
+                        <div class="admin-item-label-category">
+                            <span class="admin-fixed-text">Type de billet</span>
+                            <span class="admin-fixed-text">Code de réservation</span>
+                            <span class="admin-fixed-text">Date de réservation</span>
+                            <span>Prix</span>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="admin-item">
+                    <p>Aucun billet ne correspond aux critères de recherche.</p>
+                </div>
+                {% endif %}
+                {% for billet in billets %}
+                    <div class="admin-item">
+                        <div class="admin-item-label">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="Frame 13">
+                                    <g id="Group 1">
+                                        <g id="Group">
+                                            <path id="Vector" d="M26.2903 8.67742C25.6111 9.35664 25.0687 9.58064 24.0323 9.58064C21.9594 9.58064 20.4194 8.04065 20.4194 5.96774C20.4194 4.93129 20.6434 4.3889 21.3226 3.70968L18.6129 1L1 18.6129L3.70968 21.3226C4.3889 20.6434 4.93129 20.4194 5.96774 20.4194C8.04065 20.4194 9.58064 21.9594 9.58064 24.0323C9.58064 25.0687 9.35664 25.6111 8.67742 26.2903L11.3871 29L29 11.3871L26.2903 8.67742Z" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                            <path id="Vector_2" d="M12.29 7.32263L14.0965 9.12908" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                            <path id="Vector_3" d="M20.8711 15.9031L22.6775 17.7095" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                        </g>
+                                        <path id="Vector_4" d="M15 10.0321L16.8065 11.8386" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                        <path id="Vector_5" d="M18.1611 13.1936L19.9676 15.0001" stroke="black" stroke-width="1.25" stroke-miterlimit="10"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="admin-item-label-category">
+                                <span class="admin-fixed-text">{{ billet.type }}</span>
+                                <span class="admin-fixed-text">N°{{ billet.code }}</span>
+                                <span class="admin-fixed-text">{{ billet.getDateReservation()|date('d/m/Y') }}</span>
+                                {% if billet.type == 'Plein tarif' %}
+                                    <span><strong>20€</strong></span>
+                                {% elseif billet.type == 'Tarif réduit' %}
+                                    <span><strong>15€</strong></span>
+                                {% elseif billet.type == 'Moins de 10 ans' %}
+                                    <span><strong>5€</strong></span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

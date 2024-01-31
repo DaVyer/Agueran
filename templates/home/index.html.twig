@@ -1,0 +1,246 @@
+{% extends 'base.html.twig' %}
+
+{% block preload %}
+    <link rel="preload" href="/img/home/background.png" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/home/background.png"), lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Au plus près de la nature', description: 'Venez explorer le Zoo d’Agueran au fil des saisons... Ouvert toute l’année, vous serez accueilli par de nombreuses espèces différentes !', button: true}, with_context=false) }}
+
+    <section class="info" id="info">
+        <div class="container">
+            <div class="img-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40" fill="none">
+                    <path d="M15.0002 40L14.2391 39.0698C13.7317 38.3932 0.792969 23.2558 0.792969 14.2072C0.792969 6.34251 7.22003 0 15.0002 0C22.7803 0 29.2073 6.42707 29.2073 14.2072C29.2073 23.2558 16.2686 38.4778 15.7612 39.0698L15.0002 40ZM15.0002 1.94505C8.23483 1.94505 2.82257 7.44187 2.82257 14.1226C2.82257 21.2262 12.2095 33.3192 15.0002 36.7865C17.7908 33.3192 27.1777 21.3108 27.1777 14.1226C27.1777 7.44187 21.7655 1.94505 15.0002 1.94505Z" fill="white"></path>
+                    <path d="M15.0001 19.6195C12.0403 19.6195 9.58789 17.167 9.58789 14.2072C9.58789 11.2474 12.0403 8.79492 15.0001 8.79492C17.96 8.79492 20.4124 11.2474 20.4124 14.2072C20.4124 17.167 17.96 19.6195 15.0001 19.6195ZM15.0001 10.8245C13.1397 10.8245 11.6175 12.3467 11.6175 14.2072C11.6175 16.0677 13.1397 17.5899 15.0001 17.5899C16.8606 17.5899 18.3828 16.0677 18.3828 14.2072C18.3828 12.3467 16.8606 10.8245 15.0001 10.8245Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Localisation</p>
+                <span>3 rue de Paris<br>Agueran, 51802</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20.833 12.0834C20.833 11.7519 20.7013 11.4339 20.4669 11.1995C20.2325 10.9651 19.9145 10.8334 19.583 10.8334C19.2515 10.8334 18.9335 10.9651 18.6991 11.1995C18.4647 11.4339 18.333 11.7519 18.333 12.0834V21.25C18.333 21.7 18.573 22.1134 18.963 22.335L24.7963 25.6684C25.0835 25.8236 25.4199 25.8603 25.7338 25.7707C26.0477 25.6811 26.314 25.4723 26.476 25.1889C26.6379 24.9055 26.6826 24.57 26.6004 24.2541C26.5183 23.9382 26.3158 23.667 26.0363 23.4984L20.833 20.525V12.0834Z" fill="white"></path>
+                    <path d="M20.0003 1.66663C30.1253 1.66663 38.3337 9.87496 38.3337 20C38.3337 30.125 30.1253 38.3333 20.0003 38.3333C9.87533 38.3333 1.66699 30.125 1.66699 20C1.66699 9.87496 9.87533 1.66663 20.0003 1.66663ZM4.16699 20C4.16699 24.1992 5.83514 28.2265 8.80447 31.1958C11.7738 34.1651 15.8011 35.8333 20.0003 35.8333C24.1996 35.8333 28.2269 34.1651 31.1962 31.1958C34.1655 28.2265 35.8337 24.1992 35.8337 20C35.8337 15.8007 34.1655 11.7734 31.1962 8.8041C28.2269 5.83478 24.1996 4.16663 20.0003 4.16663C15.8011 4.16663 11.7738 5.83478 8.80447 8.8041C5.83514 11.7734 4.16699 15.8007 4.16699 20Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Horaires</p>
+                <span>Ouvert tous les jours<br>10h à 18h en semaine<br>10h à 20h les week-ends</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img-box">
+                <img src="img/calendar.svg" alt="calendar" loading="lazy">
+            </div>
+            <div class="text">
+                <p>Evènements</p>
+                <span>Des évènements ont<br>lieu toute l’année en<br>fonction des saisons.</span>
+            </div>
+        </div>
+    </section>
+    <section class="animals" id="animaux">
+        <div class="header">
+            <p>Les animaux phares</p>
+            <a href="{{ path('app_animals') }}">Voir tous les animaux<img src="img/arrow.svg" alt="arrow"></a>
+        </div>
+        <div class="list">
+            <div class="container big">
+                <img class="animal" src="img/animals/1.png" alt="animal" loading="lazy">
+                <div class="description">Panda roux</div>
+            </div>
+            <div class="container small">
+                <img class="animal" src="img/animals/2.png" alt="animal" loading="lazy">
+                <div class="description">Eléphant</div>
+            </div>
+            <div class="two">
+                <div class="container column">
+                    <img class="animal" src="img/animals/3.png" alt="animal" loading="lazy">
+                    <div class="description">Pygargue à tête blanche</div>
+                </div>
+                <div class="container column">
+                    <img class="animal" src="img/animals/4.png" alt="animal" loading="lazy">
+                    <div class="description">Jaguar</div>
+                </div>
+            </div>
+            <div class="two">
+                <div class="container column">
+                    <img class="animal" src="img/animals/5.png" alt="animal" loading="lazy">
+                    <div class="description">Pygargue empereur</div>
+                </div>
+                <div class="container column">
+                    <img class="animal" src="img/animals/6.png" alt="animal" loading="lazy">
+                    <div class="description">Otarie</div>
+                </div>
+            </div>
+            <div class="container small">
+                <img class="animal" src="img/animals/7.png" alt="animal" loading="lazy">
+                <div class="description">Impala</div>
+            </div>
+            <div class="container big">
+                <img class="animal" src="img/animals/8.png" alt="animal" loading="lazy">
+                <div class="description">Girafes</div>
+            </div>
+        </div>
+    </section>
+    <section class="stats" id="stats">
+        <div class="top">
+            <div class="stats-box">
+                <div class="text">
+                    <p>10</p>
+                    <span>ans</span>
+                </div>
+                <img src="img/10y.svg" alt="10y" loading="lazy">
+            </div>
+            <div class="stats-box">
+                <div class="text">
+                    <p>200+</p>
+                    <span>partenaires</span>
+                </div>
+                <img src="img/house.svg" alt="house" loading="lazy">
+            </div>
+            <div class="stats-box">
+                <div class="text">
+                    <p>300+</p>
+                    <span>espèces</span>
+                </div>
+                <img src="img/list.svg" alt="list" loading="lazy">
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="stats-box">
+                <div class="text">
+                    <p>900+</p>
+                    <span>animaux</span>
+                </div>
+                <img src="img/animals.svg" alt="animals" loading="lazy">
+            </div>
+            <div class="stats-box">
+                <div class="text">
+                    <p>1 200 000+</p>
+                    <span>visiteurs par an</span>
+                </div>
+                <img src="img/person.svg" alt="person" loading="lazy">
+            </div>
+        </div>
+    </section>
+    <section class="activities" id="activites">
+        <div class="header">
+            <p>Programme Saisonnier</p>
+            <a href="{{ path('app_programs') }}">Voir toutes les activités<img src="img/arrow.svg" alt="arrow"></a>
+        </div>
+        <div class="list">
+            <div class="container">
+                <div class="img-box">
+                    <img src="img/programs/1.png" alt="animal" loading="lazy">
+                </div>
+                <div class="text">
+                    <div class="header">
+                        <p>Le vol des rapaces</p>
+                        <div class="information">
+                            <div class="localisation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="18" viewBox="0 0 13 18" fill="none">
+                                    <path d="M6.64418 17.0317L6.68287 17.079L6.72157 17.0317L7.02527 16.6604C7.0254 16.6603 7.02553 16.6601 7.02566 16.66C7.1307 16.5374 8.47514 14.9556 9.7944 12.9514C10.4548 11.948 11.1096 10.8378 11.5995 9.75099C12.0889 8.66511 12.4157 7.59824 12.4157 6.68288C12.4157 3.54322 9.82254 0.95 6.68287 0.95C3.5434 0.95 0.95 3.5092 0.95 6.68288C0.95 7.59826 1.27682 8.66303 1.76627 9.74628C2.25613 10.8304 2.91094 11.9375 3.57137 12.9387C4.7024 14.6534 5.8539 16.0632 6.22278 16.5148C6.28448 16.5903 6.32428 16.639 6.33844 16.6579L6.3384 16.6579L6.33974 16.6596L6.64418 17.0317ZM1.86184 6.64905C1.86184 4.00413 4.00458 1.82802 6.68287 1.82802C9.36116 1.82802 11.5039 4.00413 11.5039 6.64905C11.5039 7.35815 11.2721 8.19029 10.9037 9.06409C10.5356 9.93715 10.0328 10.848 9.49454 11.7135C8.44235 13.4053 7.25677 14.9201 6.68288 15.6348C6.10906 14.9198 4.92346 13.3968 3.87124 11.7009C3.33292 10.8333 2.83011 9.92129 2.46202 9.04979C2.09361 8.1775 1.86184 7.34963 1.86184 6.64905Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    <path d="M4.46758 6.68298C4.46758 7.89452 5.47093 8.89788 6.68248 8.89788C7.89403 8.89788 8.89738 7.89452 8.89738 6.68298C8.89738 5.47143 7.89403 4.46807 6.68248 4.46807C5.47093 4.46807 4.46758 5.47143 4.46758 6.68298ZM5.37942 6.68298C5.37942 5.96641 5.96591 5.37991 6.68248 5.37991C7.39905 5.37991 7.98555 5.96641 7.98555 6.68298C7.98555 7.39955 7.39905 7.98604 6.68248 7.98604C5.96591 7.98604 5.37942 7.39955 5.37942 6.68298Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                </svg>
+                                <span>Rocher des rapaces</span>
+                            </div>
+                            <div class="horaires">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                    <path d="M16.4162 8.9998C16.4161 4.57053 12.7955 0.95 8.36621 0.95C3.93685 0.95 0.316211 4.57064 0.316211 9C0.316211 13.4294 3.93685 17.05 8.36621 17.05C12.8302 17.05 16.4513 13.4296 16.4162 8.9998ZM16.4162 8.9998C16.4162 8.99987 16.4162 8.99993 16.4162 9H16.3662L16.4162 8.9996C16.4162 8.99967 16.4162 8.99973 16.4162 8.9998ZM1.28957 8.96506C1.28957 5.07985 4.44639 1.88843 8.36621 1.88843C12.286 1.88843 15.4428 5.07985 15.4428 8.96506C15.4428 12.8501 12.2513 16.0417 8.36621 16.0417C4.48116 16.0417 1.28957 12.8501 1.28957 8.96506Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    <path d="M10.8462 13.1228L10.8815 13.1581L10.9169 13.1228L11.5807 12.459L11.616 12.4236L11.5807 12.3883L8.90533 9.71298V4.70312V4.65312H8.85533H7.91211H7.86211V4.70312V10.118V10.1387L7.87675 10.1533L10.8462 13.1228Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                </svg>
+                                <span>10h30 - 12h00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span>Une heure et demie de spectacle non stop avec une cinquantaine de rapaces au dessus de vos têtes !</span>
+                    <a href="{{ path('app_show_programs', {id: 1}) }}" class="button"><img src="img/info.svg" alt="info" loading="lazy">Plus d'informations<img src="img/arrow-right.svg" alt="arrow-right"></a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="img-box">
+                    <img src="img/programs/2.png" alt="animal" loading="lazy">
+                </div>
+                <div class="text">
+                    <div class="header">
+                        <p>Nourrissage des lémuriens</p>
+                        <div class="information">
+                            <div class="localisation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="18" viewBox="0 0 13 18" fill="none">
+                                    <path d="M6.64418 17.0317L6.68287 17.079L6.72157 17.0317L7.02527 16.6604C7.0254 16.6603 7.02553 16.6601 7.02566 16.66C7.1307 16.5374 8.47514 14.9556 9.7944 12.9514C10.4548 11.948 11.1096 10.8378 11.5995 9.75099C12.0889 8.66511 12.4157 7.59824 12.4157 6.68288C12.4157 3.54322 9.82254 0.95 6.68287 0.95C3.5434 0.95 0.95 3.5092 0.95 6.68288C0.95 7.59826 1.27682 8.66303 1.76627 9.74628C2.25613 10.8304 2.91094 11.9375 3.57137 12.9387C4.7024 14.6534 5.8539 16.0632 6.22278 16.5148C6.28448 16.5903 6.32428 16.639 6.33844 16.6579L6.3384 16.6579L6.33974 16.6596L6.64418 17.0317ZM1.86184 6.64905C1.86184 4.00413 4.00458 1.82802 6.68287 1.82802C9.36116 1.82802 11.5039 4.00413 11.5039 6.64905C11.5039 7.35815 11.2721 8.19029 10.9037 9.06409C10.5356 9.93715 10.0328 10.848 9.49454 11.7135C8.44235 13.4053 7.25677 14.9201 6.68288 15.6348C6.10906 14.9198 4.92346 13.3968 3.87124 11.7009C3.33292 10.8333 2.83011 9.92129 2.46202 9.04979C2.09361 8.1775 1.86184 7.34963 1.86184 6.64905Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    <path d="M4.46758 6.68298C4.46758 7.89452 5.47093 8.89788 6.68248 8.89788C7.89403 8.89788 8.89738 7.89452 8.89738 6.68298C8.89738 5.47143 7.89403 4.46807 6.68248 4.46807C5.47093 4.46807 4.46758 5.47143 4.46758 6.68298ZM5.37942 6.68298C5.37942 5.96641 5.96591 5.37991 6.68248 5.37991C7.39905 5.37991 7.98555 5.96641 7.98555 6.68298C7.98555 7.39955 7.39905 7.98604 6.68248 7.98604C5.96591 7.98604 5.37942 7.39955 5.37942 6.68298Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                </svg>
+                                <span>L’île des lémuriens</span>
+                            </div>
+                            <div class="horaires">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                    <path d="M16.4162 8.9998C16.4161 4.57053 12.7955 0.95 8.36621 0.95C3.93685 0.95 0.316211 4.57064 0.316211 9C0.316211 13.4294 3.93685 17.05 8.36621 17.05C12.8302 17.05 16.4513 13.4296 16.4162 8.9998ZM16.4162 8.9998C16.4162 8.99987 16.4162 8.99993 16.4162 9H16.3662L16.4162 8.9996C16.4162 8.99967 16.4162 8.99973 16.4162 8.9998ZM1.28957 8.96506C1.28957 5.07985 4.44639 1.88843 8.36621 1.88843C12.286 1.88843 15.4428 5.07985 15.4428 8.96506C15.4428 12.8501 12.2513 16.0417 8.36621 16.0417C4.48116 16.0417 1.28957 12.8501 1.28957 8.96506Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    <path d="M10.8462 13.1228L10.8815 13.1581L10.9169 13.1228L11.5807 12.459L11.616 12.4236L11.5807 12.3883L8.90533 9.71298V4.70312V4.65312H8.85533H7.91211H7.86211V4.70312V10.118V10.1387L7.87675 10.1533L10.8462 13.1228Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                </svg>
+                                <span>12h00 - 12h30</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span>Venez nourrir les lémuriens, ces petites créatures qui n’hésiteront pas à vous courrir après pour avoir un bout de pomme...</span>
+                    <a href="{{ path('app_show_programs', {id: 2}) }}" class="button"><img src="img/info.svg" alt="info" loading="lazy">Plus d'informations<img src="img/arrow-right.svg" alt="arrow-right"></a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="img-box">
+                    <img src="img/programs/3.png" alt="animal" loading="lazy">
+                </div>
+                <div class="text">
+                    <div class="header">
+                        <p>Les otaries en action </p>
+                        <div class="information">
+                            <div class="localisation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="18" viewBox="0 0 13 18" fill="none">
+                                    <path d="M6.64418 17.0317L6.68287 17.079L6.72157 17.0317L7.02527 16.6604C7.0254 16.6603 7.02553 16.6601 7.02566 16.66C7.1307 16.5374 8.47514 14.9556 9.7944 12.9514C10.4548 11.948 11.1096 10.8378 11.5995 9.75099C12.0889 8.66511 12.4157 7.59824 12.4157 6.68288C12.4157 3.54322 9.82254 0.95 6.68287 0.95C3.5434 0.95 0.95 3.5092 0.95 6.68288C0.95 7.59826 1.27682 8.66303 1.76627 9.74628C2.25613 10.8304 2.91094 11.9375 3.57137 12.9387C4.7024 14.6534 5.8539 16.0632 6.22278 16.5148C6.28448 16.5903 6.32428 16.639 6.33844 16.6579L6.3384 16.6579L6.33974 16.6596L6.64418 17.0317ZM1.86184 6.64905C1.86184 4.00413 4.00458 1.82802 6.68287 1.82802C9.36116 1.82802 11.5039 4.00413 11.5039 6.64905C11.5039 7.35815 11.2721 8.19029 10.9037 9.06409C10.5356 9.93715 10.0328 10.848 9.49454 11.7135C8.44235 13.4053 7.25677 14.9201 6.68288 15.6348C6.10906 14.9198 4.92346 13.3968 3.87124 11.7009C3.33292 10.8333 2.83011 9.92129 2.46202 9.04979C2.09361 8.1775 1.86184 7.34963 1.86184 6.64905Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    <path d="M4.46758 6.68298C4.46758 7.89452 5.47093 8.89788 6.68248 8.89788C7.89403 8.89788 8.89738 7.89452 8.89738 6.68298C8.89738 5.47143 7.89403 4.46807 6.68248 4.46807C5.47093 4.46807 4.46758 5.47143 4.46758 6.68298ZM5.37942 6.68298C5.37942 5.96641 5.96591 5.37991 6.68248 5.37991C7.39905 5.37991 7.98555 5.96641 7.98555 6.68298C7.98555 7.39955 7.39905 7.98604 6.68248 7.98604C5.96591 7.98604 5.37942 7.39955 5.37942 6.68298Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                </svg>
+                                <span>Grand bassin</span>
+                            </div>
+                            <div class="horaires">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                    <path d="M16.4162 8.9998C16.4161 4.57053 12.7955 0.95 8.36621 0.95C3.93685 0.95 0.316211 4.57064 0.316211 9C0.316211 13.4294 3.93685 17.05 8.36621 17.05C12.8302 17.05 16.4513 13.4296 16.4162 8.9998ZM16.4162 8.9998C16.4162 8.99987 16.4162 8.99993 16.4162 9H16.3662L16.4162 8.9996C16.4162 8.99967 16.4162 8.99973 16.4162 8.9998ZM1.28957 8.96506C1.28957 5.07985 4.44639 1.88843 8.36621 1.88843C12.286 1.88843 15.4428 5.07985 15.4428 8.96506C15.4428 12.8501 12.2513 16.0417 8.36621 16.0417C4.48116 16.0417 1.28957 12.8501 1.28957 8.96506Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    <path d="M10.8462 13.1228L10.8815 13.1581L10.9169 13.1228L11.5807 12.459L11.616 12.4236L11.5807 12.3883L8.90533 9.71298V4.70312V4.65312H8.85533H7.91211H7.86211V4.70312V10.118V10.1387L7.87675 10.1533L10.8462 13.1228Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                </svg>
+                                <span>15h00 - 16h00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span>Vous ne connaissez pas encore les otaries ? Pendant une heure elles vont vous étonner aussi bien dans l’eau que dans les airs !</span>
+                    <a href="{{ path('app_show_programs', {id: 3}) }}" class="button"><img src="img/info.svg" alt="info" loading="lazy">Plus d'informations<img src="img/arrow-right.svg" alt="arrow-right" loading="lazy"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation d'un évènement{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/animals/background-animals.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/billetterie.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/programme/img/{{ activite.id }}"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: titre, description: activite.descActivite}, with_context=false) }}
+
+    <section id="billetterie">
+        {{ form_start(form, {'attr': {'class': 'billetterie'}}) }}
+            {% if error ?? false %}
+                <div class="billetterie-box error">
+                    <div class="billetterie-text">
+                        <h2>{{ error }}</h2>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="billetterie-box">
+                <div class="billetterie-text">
+                    <h2>Réservation d'un évènement</h2>
+                    <p>Vous pouvez réserver vos billets pour un évènement en particulier.</p>
+                    <br>
+                    <p><a href="{{ path('app_reservations') }}">Cliquer ici</a> pour voir vos billets et réservations en cours.</p>
+                </div>
+            </div>
+            <div class="billetterie-box">
+                <div class="billetterie-product">
+                    <div class="billetterie-product-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                            <path d="M16.4162 8.9998C16.4161 4.57053 12.7955 0.95 8.36621 0.95C3.93685 0.95 0.316211 4.57064 0.316211 9C0.316211 13.4294 3.93685 17.05 8.36621 17.05C12.8302 17.05 16.4513 13.4296 16.4162 8.9998ZM16.4162 8.9998C16.4162 8.99987 16.4162 8.99993 16.4162 9H16.3662L16.4162 8.9996C16.4162 8.99967 16.4162 8.99973 16.4162 8.9998ZM1.28957 8.96506C1.28957 5.07985 4.44639 1.88843 8.36621 1.88843C12.286 1.88843 15.4428 5.07985 15.4428 8.96506C15.4428 12.8501 12.2513 16.0417 8.36621 16.0417C4.48116 16.0417 1.28957 12.8501 1.28957 8.96506Z" fill="#1A1A1A" stroke="black" stroke-width="0.1"></path>
+                            <path d="M10.8462 13.1228L10.8815 13.1581L10.9169 13.1228L11.5807 12.459L11.616 12.4236L11.5807 12.3883L8.90533 9.71298V4.70312V4.65312H8.85533H7.91211H7.86211V4.70312V10.118V10.1387L7.87675 10.1533L10.8462 13.1228Z" fill="#1A1A1A" stroke="black" stroke-width="0.1"></path>
+                        </svg>
+                        <div class="billetterie-product-label-category">
+                            Nombre de visiteurs
+                        </div>
+                    </div>
+                    <div class="billetterie-product-quantity">
+                        {{ form_row(form.nbVisiteurs) }}
+                    </div>
+                </div>
+                <button class="button" type="submit">Réserver<img src="/img/arrow-right.svg" alt="arrow-right" loading="lazy"></button>
+                <div class="billetterie-text">
+                    <p class="billetterie-small-text">En cliquant sur réserver, vous acceptez nos <a href="{{ path('app_cgv') }}">Conditions Générales de Vente</a>.</p>
+                    <p class="billetterie-small-text">Les réservations ne sont ni reprises, ni échangées, ni remboursées, sauf en cas d’annulation de la visite par le Parc.</p>
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre Profil{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/authentification/background-compte.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/authentification/background-compte.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Votre Profil', description: '', deconnexion: true}, with_context=false) }}
+
+    <section class="text">
+        <div class="header">
+            <p><strong>{{ user.prenom|e }} {{ user.nom|e }}</strong></p>
+        </div>
+        <ul>
+            <li>Prénom : {{ user.prenom|e }}</li>
+            <li>Nom : {{ user.nom|e }}</li>
+            <li>Email : {{ user.email }}</li>
+            <li>Téléphone : {{ user.telephone }}</li>
+            <li>Adresse : {{ user.adresse }}</li>
+            <li>Ville : {{ user.ville }}</li>
+            <li>Code Postal : {{ user.codePostal }}</li>
+            <li>Pays : {{ user.pays | country_name}}</li>
+        </ul>
+        <div id="compte">
+            <a href="{{ path('app_compte_update') }}">Modifier votre Profil</a>
+            <a href="{{ path('app_compte_delete') }}">Supprimer votre Compte</a>
+        </div>
+    </section>
+{% endblock %}

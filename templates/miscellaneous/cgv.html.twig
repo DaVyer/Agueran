@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CGV Billeterie{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/miscellaneous/background-cgv.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/miscellaneous/background-cgv.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Conditions Générales de Vente', description: ''}, with_context=false) }}
+
+    <section class="text">
+        <div class="header">
+            <p><strong>Conditions Générales de Vente (CGV) - Zoo d'Agueran</strong></p>
+        </div>
+        <div class="cgvTexte">
+            <ol>
+                <li><strong><u>Objet</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Les présentes conditions générales de vente régissent l'achat de billets d'entrée pour le Zoo d'Agueran, situé à 3 rue de Paris, Agueran, 51802.
+                    </li>
+                </ol>
+                <br>
+                <li><strong><u>Tarifs et Paiement</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Les tarifs d'entrée au Zoo d'Agueran sont indiqués en euro et incluent toutes les taxes en vigueur.
+                    </li>
+                    <br>
+                    <li>
+                        Le règlement des billets d'entrée s'effectue en ligne au moment de la réservation, et ce, par les moyens de paiement acceptés disponibles sur notre site internet <a href="https://agueran.bayfield.dev/">https://agueran.bayfield.dev/</a>
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Confirmation de la Réservation</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Une fois le paiement effectué, le client recevra une confirmation de sa réservation par courrier électronique à l'adresse fournie lors de la réservation en ligne.
+                    </li>
+                    <br>
+                    <li>
+                        Le client est tenu de vérifier l'exactitude des informations figurant sur la confirmation de réservation et de signaler toute erreur dans les plus brefs délais.
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Annulation et Remboursement</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Les billets d'entrée au Zoo d'Agueran ne sont ni échangeables ni remboursables, sauf en cas de fermeture exceptionnelle du Zoo d'Agueran décidée par la direction.
+                    </li>
+                    <br>
+                    <li>
+                        En cas de fermeture exceptionnelle, le remboursement sera effectué selon les modalités définies par la direction du Zoo d'Agueran.
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Responsabilité</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Le Zoo d'Agueran décline toute responsabilité en cas de perte ou de vol des billets après leur remise au client.
+                    </li>
+                    <br>
+                    <li>
+                        Le Zoo d'Agueran se réserve le droit de modifier les horaires, les programmes d'animations ou la disponibilité des attractions sans préavis.
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Règles de Visite</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Les visiteurs sont tenus de respecter les règles de sécurité et les consignes affichées dans le Zoo d'Agueran.
+                    </li>
+                    <br>
+                    <li>
+                        Les visiteurs sont responsables de la surveillance des enfants dont ils ont la charge.
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Protection des Données Personnelles</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        En passant une réservation, le client consent à la collecte et à l'utilisation de ses données personnelles conformément à la politique de confidentialité disponible sur le site internet du Zoo d'Agueran.
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Litiges</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Tout litige relatif aux présentes CGV sera soumis à la juridiction compétente conformément à la législation en vigueur.
+                    </li>
+                </ol>
+                <br>
+            <li><strong><u>Modification des CGV</u></strong></li>
+                <br>
+                <ol>
+                    <li>
+                        Le Zoo d'Agueran se réserve le droit de modifier les présentes CGV à tout moment. Les clients seront informés de toute modification par le biais du site internet.
+                    </li>
+                </ol>
+            </ol>
+        </div>
+    </section>
+{% endblock %}

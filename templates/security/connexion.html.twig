@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/security/background-connexion.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/security/background-connexion.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Connexion', description: 'Veuillez vous connecter avant de continuer...', connexion: true}, with_context=false) }}
+
+    <section class="text" id="connexion">
+        <form method="post">
+            <h1>Connectez-vous</h1>
+            {% if error %}
+                <div class="alert alert-danger">Identifiants invalides !</div>
+            {% endif %}
+            <div>
+                <label for="inputEmail">Email</label>
+                <input class="form_button" type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" placeholder="Votre email" required autofocus>
+            </div>
+            <div>
+                <label for="inputPassword">Mot de passe</label>
+                <input class="form_button" type="password" name="password" id="inputPassword" autocomplete="current-password" placeholder="Votre mot de passe" required>
+                <label>
+                    <input type="checkbox" name="_remember_me" checked>
+                    Rester connecter
+                </label>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button class="button" type="submit">Connexion<img src="img/arrow-right.svg" alt="arrow-right"></button>
+            <a href="{{ path('app_compte_create') }}">Pas de compte ? Créer un compte</a>
+        </form>
+    </section>
+{% endblock %}

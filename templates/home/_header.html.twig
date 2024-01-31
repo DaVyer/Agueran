@@ -1,0 +1,46 @@
+<header>
+    <div class="frame">
+        <nav>
+            <a class="logo" href={{ path('app_home') }}><img src="/img/logo.png" class="logo" alt="logo" loading="eager">Zoo d'Agueran</a>
+            <div class="empty"></div>
+            <div class="links">
+                <a href="{{ path('app_billetterie') }}"><img src="/img/ticket.svg" alt="ticket">Billetterie</a>
+                <a href="{{ path('app_reservations') }}"><img src="/img/reservation.svg" alt="reservations">Réservations</a>
+                <a href="{{ path('app_map') }}"><img src="/img/plan.svg" alt="plan">Plan</a>
+                <a href="{{ path('app_animals') }}"><img src="/img/animals.svg" alt="animals">Animaux</a>
+                <a href="{{ path('app_programs') }}"><img src="/img/program.svg" alt="program">Programme</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <div class="home" id="home">
+            <h1>{{ titre }}</h1>
+            <p>{{ description }}</p>
+
+            {% if button ?? false == true %}
+                <a href="{{ path('app_billetterie') }}" class="button" id="home-button"><img src="/img/ticket.svg" alt="ticket">Acheter mon billet<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+            {% if connexion_route ?? false == true %}
+                <a href="{{ path('app_connexion') }}" class="button" id="home-button">Se connecter<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+            {% if connexion ?? false == true %}
+                <a href="#connexion" class="button" id="home-button">Se connecter<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+            {% if deconnexion ?? false == true %}
+                <a href="{{ path('app_logout') }}" class="button" id="home-button">Se déconnecter<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+            {% if modifier ?? false == true %}
+                <a href="#compte" class="button" id="home-button">Modifier mon Profil<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+            {% if creation ?? false == true %}
+                <a href="#compte" class="button" id="home-button">Créer un compte<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+            {% if billetterie ?? false == true %}
+                <a href="#billetterie" class="button" id="home-button">Voir mes billets<img src="/img/arrow-right.svg" alt="arrow-right"></a>
+            {% endif %}
+        </div>
+    </div>
+</header>

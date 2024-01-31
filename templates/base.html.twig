@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/favicon.ico" />
+    <meta property="og:image:alt" content="favicon.ico" />
+    <meta property="og:image:type" content="image/vnd.microsoft.icon">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <title>{% block title %}Zoo d'Agueran{% endblock %}</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon.ico">
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Sofia Sans' rel='stylesheet'>
+    {% endblock %}
+
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+
+    {% block javascripts %}
+        <script src="/js/script.js" defer></script>
+    {% endblock %}
+
+    {% block preload %}
+    {% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+<footer>
+    <div class ="partie1">
+        <div class = "section1">
+            <h1>Zoo d’Agueran</h1>
+            <div class = "information">
+                <div class = "courriel">
+                    <svg width="19" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.9062 3.875H3.09375C2.3171 3.875 1.6875 4.5046 1.6875 5.28125V13.7188C1.6875 14.4954 2.3171 15.125 3.09375 15.125H14.9062C15.6829 15.125 16.3125 14.4954 16.3125 13.7188V5.28125C16.3125 4.5046 15.6829 3.875 14.9062 3.875Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.9375 6.125L9 10.0625L14.0625 6.125" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <a href="mailto:mail@zoo-agueran.com">mail@zoo-agueran.com</a>
+                </div>
+
+                <div class = "info_telephone">
+                    <div class = "telephone">
+                        <svg width="19" height="19" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.348 13.631C11.348 13.631 12.7821 12.8101 13.1575 12.6128C13.5319 12.4148 13.9197 12.3649 14.1552 12.5087C14.5119 12.7268 17.5067 14.719 17.7589 14.8954C18.0111 15.0722 18.1326 15.5768 17.7858 16.0713C17.4405 16.5657 15.8474 18.5207 15.1724 18.4998C14.4963 18.4779 11.6852 18.4162 6.38431 13.1139C1.08447 7.81339 1.02178 5.00162 1.00018 4.3255C0.978573 3.64974 2.9336 2.05632 3.42803 1.71065C3.92316 1.36533 4.42857 1.49531 4.60424 1.73827C4.80399 2.01488 6.77319 5.0002 6.98994 5.34233C7.13834 5.57609 7.0838 5.96603 6.88581 6.34074C6.68889 6.71617 5.86792 8.15021 5.86792 8.15021C5.86792 8.15021 6.44664 9.13729 8.4038 11.0941C10.3613 13.0512 11.348 13.631 11.348 13.631Z" stroke="white" stroke-width="1.1" stroke-miterlimit="10"/>
+                        </svg>
+                    </div>
+                    <a href="tel:+33 03 26 91 30 02">+33 03 26 91 30 02</a>
+                </div>
+                <div class = "info_localisation">
+                    <div class = "localisation">
+                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.96098 18.5317L8.99968 18.579L9.03838 18.5317L9.38013 18.1139C9.38026 18.1138 9.38039 18.1136 9.38052 18.1135C9.49825 17.9761 11.0108 16.1967 12.4949 13.9419C13.2378 12.8132 13.9743 11.5645 14.5252 10.3423C15.0757 9.12098 15.4429 7.92171 15.4429 6.89324C15.4429 3.36457 12.5283 0.45 8.99968 0.45C5.4712 0.45 2.55645 3.32632 2.55645 6.89324C2.55645 7.92173 2.9237 9.11863 3.4742 10.337C4.0251 11.5562 4.76157 12.8014 5.50445 13.9276C6.77649 15.8561 8.07131 17.4413 8.48671 17.9499C8.55629 18.0351 8.60119 18.0901 8.61719 18.1114L8.61715 18.1114L8.61849 18.1131L8.96098 18.5317ZM3.56977 6.85518C3.56977 3.87623 5.98312 1.42527 8.99968 1.42527C12.0162 1.42527 14.4296 3.87623 14.4296 6.85518C14.4296 7.65413 14.1684 8.59119 13.7539 9.57452C13.3396 10.5571 12.7738 11.5822 12.1681 12.556C10.9812 14.4644 9.64351 16.1725 8.99968 16.9741C8.35593 16.1722 7.0182 14.4549 5.83128 12.5418C5.22557 11.5656 4.65973 10.5393 4.24547 9.55844C3.83087 8.57682 3.56977 7.64455 3.56977 6.85518Z" fill="white" stroke="white" stroke-width="0.1"/>
+                            <path d="M6.51445 6.89305C6.51445 8.25258 7.64043 9.37856 8.99997 9.37856C10.3595 9.37856 11.4855 8.25258 11.4855 6.89305C11.4855 5.53351 10.3595 4.40752 8.99997 4.40752C7.64043 4.40752 6.51445 5.53351 6.51445 6.89305ZM7.52777 6.89305C7.52777 6.08345 8.19037 5.42085 8.99997 5.42085C9.80956 5.42085 10.4722 6.08345 10.4722 6.89305C10.4722 7.70264 9.80956 8.36524 8.99997 8.36524C8.19037 8.36524 7.52777 7.70264 7.52777 6.89305Z" fill="white" stroke="white" stroke-width="0.1"/>
+                        </svg>
+                    </div>
+                    <a>3 rue de Paris, Agueran - 51802</a>
+                </div>
+            </div>
+            <div class = "reseaux">
+                <a href=#>
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="33" height="33" rx="16.5" stroke="white"/>
+                        <path d="M24.8366 13.5881C24.8366 13.5881 24.6818 12.4099 24.2002 11.8939C23.5896 11.2145 22.9102 11.2102 22.5963 11.1715C20.3561 10.9995 16.9978 10.9995 16.9978 10.9995H16.9893C16.9893 10.9995 13.631 10.9995 11.3908 11.1715C11.0769 11.2102 10.3975 11.2145 9.78689 11.8939C9.30959 12.4142 9.1505 13.5881 9.1505 13.5881C9.1505 13.5881 9 14.9683 9 16.3486V17.6429C9 19.0232 9.1591 20.4034 9.1591 20.4034C9.1591 20.4034 9.31389 21.5816 9.79549 22.0976C10.4061 22.777 11.2016 22.7555 11.5585 22.8286C12.8398 22.9576 16.9978 23.0006 16.9978 23.0006C16.9978 23.0006 20.3604 22.9963 22.6006 22.8243C22.9145 22.7856 23.5939 22.7813 24.2045 22.1019C24.6818 21.5859 24.8409 20.4077 24.8409 20.4077C24.8409 20.4077 25 19.0275 25 17.6472V16.3529C24.9957 14.9683 24.8366 13.5881 24.8366 13.5881Z" stroke="white" stroke-miterlimit="10"/>
+                        <path d="M14.998 13.9966V19.9993L19.9989 16.9979L14.998 13.9966Z" stroke="white" stroke-miterlimit="10"/>
+                    </svg>
+                </a>
+                <a href=#>
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="33" height="33" rx="16.5" stroke="white"/>
+                        <path d="M17.0002 20.3275C18.8378 20.3275 20.3275 18.8378 20.3275 17.0002C20.3275 15.1625 18.8378 13.6729 17.0002 13.6729C15.1625 13.6729 13.6729 15.1625 13.6729 17.0002C13.6729 18.8378 15.1625 20.3275 17.0002 20.3275Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21.3952 13.2264C21.6593 13.2264 21.8734 13.0123 21.8734 12.7482C21.8734 12.4841 21.6593 12.27 21.3952 12.27C21.1311 12.27 20.917 12.4841 20.917 12.7482C20.917 13.0123 21.1311 13.2264 21.3952 13.2264Z" fill="white"/>
+                        <path d="M20.3088 24H13.6909C11.6558 24 10 22.3442 10 20.3088V13.6912C10 11.6558 11.6558 10 13.6909 10H20.3088C22.3442 10 24 11.6558 24 13.6912V20.3088C24 22.3442 22.3441 24 20.3088 24Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href=#>
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="33" height="33" rx="16.5" stroke="white"/>
+                        <path d="M21.4583 9.11455L21.3741 12.0001C21.3741 12.0001 21.0055 11.9851 19.7115 12.0001C18.4401 12.0152 18.425 12.9631 18.425 13.0082L18.41 15.4081L21.3741 15.4607L20.9453 18.5301H18.425L18.3573 25H15.303L15.2202 18.5452L12.542 18.5301L12.6172 15.4081H15.2503V13.1511C15.2503 12.2682 15.4614 11.31 15.9645 10.5735C16.4084 9.92388 17.0795 9.4952 17.8279 9.27581C17.8279 9.27581 19.3974 8.78331 21.4583 9.11455Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href=#>
+                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="33" height="33" rx="16.5" stroke="white"/>
+                        <path d="M16.9226 14.8285C16.0105 12.3016 20.1157 9.89925 21.8072 12.2055C21.8072 12.2055 22.4629 12.182 23.6594 11.5376C23.6594 11.5376 23.3741 12.4488 22.4536 13.0517C22.4536 13.0517 23.1532 13.0472 24 12.6698C24 12.6698 23.4661 13.535 22.6377 14.1149C22.6377 14.1149 22.6193 15.4127 22.426 16.2227C22.2327 17.0327 21.5884 19.2878 19.6555 20.871C17.7226 22.4542 15.3662 22.8039 14.0316 22.7119C12.6969 22.6198 11.0585 22.1136 10 21.4601C10 21.4601 12.4208 21.7178 14.2064 20.2451C14.2064 20.2451 12.4024 20.3279 11.5464 18.2477C11.5464 18.2477 12.1631 18.3582 12.8258 18.1741C12.8258 18.1741 10.5523 17.7599 10.5247 15.3115C10.5247 15.3115 11.2702 15.6797 11.8225 15.6428C11.8225 15.6428 9.65023 13.986 10.9757 11.8414C10.9757 11.8414 13.1496 14.723 16.9226 14.8285Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="intersection"></div>
+        <div class = "section2">
+            <h1>Ressources</h1>
+            <div class="footer-text">
+                <a href="{{ path('app_billetterie') }}">Billetterie</a>
+                <a href="{{ path('app_reservations') }}">Réservations</a>
+                <a href="{{ path('app_map') }}">Plan du Zoo</a>
+                <a href="{{ path('app_animals') }}">Animaux</a>
+                <a href="{{ path('app_programs') }}">Programme</a>
+                <a href="{{ path('app_compte') }}">Mon compte</a>
+            </div>
+        </div>
+        <div class = "section3">
+            <h1>Entreprise</h1>
+            <div class="footer-text">
+                <a href="{{ path('app_propos') }}">A propos</a>
+                <a href="{{ path('app_emplois') }}">Emplois</a>
+                <a href="{{ path('app_actualites') }}">Actualités</a>
+                <a href="{{ path('app_contacter') }}">Nous contacter</a>
+                <a href="{{ path('app_admin') }}">Administration</a>
+            </div>
+        </div>
+        <div class = "section4">
+            <h1>Informations</h1>
+            <div class="footer-text">
+                <a href="{{ path('app_mentions') }}">Mentions légales</a>
+                <a href="{{ path('app_cgv') }}">CGV Billetterie</a>
+                <a href="{{ path('app_reglement') }}">Règlement</a>
+                <a href="{{ path('app_confidentialite') }}">Confidentialité</a>
+                <a href="{{ path('app_faq') }}">FAQ</a>
+            </div>
+        </div>
+    </div>
+    <div class="partie2">
+        <div class="deuxiemepartie">
+            <div class="copyright">
+                <h4>Tous droits réservés ©<span id="current-year"></span> - Zoo d’Agueran</h4>
+                <h4>Toutes les images du site sont la propriété de Peter Bayfield et ne peuvent être utilisées sans autorisation.</h4>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

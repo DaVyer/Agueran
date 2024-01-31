@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programme{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/animals/background-animals.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/programme/img/{{ activite.id }}"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: activite.libActivite, description: activite.descActivite, button: false}, with_context=false) }}
+
+    <section class="info" style="flex-wrap: wrap" id="info">
+        <div class="container">
+            <div class="img-box">
+                <svg width="40" height="40" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0V120.546H15.0683V0H0ZM30.1366 0V60.2732H60.2732V75.3415H120.546L90.4098 45.657L120.546 15.0683H75.3415V0L30.1366 0Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Localisation</p>
+                <span>{{ lieu }}</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img-box">
+                <svg width="40" height="40" viewBox="0 0 121 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.3927 0V17.1964H51.5891V17.7122C22.3553 21.8394 0 47.118 0 77.3836C0 110.573 26.9983 137.571 60.1872 137.571C93.3762 137.571 120.374 110.573 120.374 77.3836C120.374 69.6452 118.655 62.4228 116.075 55.8882L100.427 62.4228C102.318 67.4097 103.178 72.2247 103.178 77.5556C103.178 101.458 84.0902 120.546 60.1872 120.546C36.2843 120.546 17.1964 101.458 17.1964 77.5556C17.1964 53.6526 36.2843 34.5647 60.1872 34.5647C65.3461 34.5647 70.3331 35.4245 75.32 37.3161L81.1668 21.1515C77.2116 19.7758 73.0845 19.088 68.7854 18.4001V17.3683H85.9818V0.171964H34.3927V0ZM120.374 19.9478C120.374 19.9478 57.6078 68.2695 54.3405 71.5368C51.0732 74.9761 51.0732 79.963 54.3405 83.4023C57.6078 86.8416 62.7667 86.8416 66.206 83.4023C69.6452 79.963 120.546 19.9478 120.546 19.9478H120.374Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Horaires</p>
+                <span>{{ activite.heureDebutActivite | date('h\\hi') }} - {{ activite.heureFinActivite | date('h\\hi') }}</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img-box">
+                <svg width="40" height="40" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M90.297 0C62.3049 0 39.1287 19.2634 32.5069 45.1485H3.76237L0 60.198H30.2495C30.2495 65.4653 31.3029 70.4316 32.6574 75.2475H3.0099L0.150495 90.297H38.6772C49.2118 108.206 68.3247 120.396 90.4475 120.396C101.434 120.396 111.667 117.236 120.546 111.968V93.6078C112.57 100.832 102.186 105.346 90.4475 105.346C77.0534 105.346 65.3148 99.4772 57.0376 90.297H90.4475L92.8554 75.2475H48.1584C46.5029 70.4316 45.299 65.6158 45.299 60.198H95.5643L97.9722 45.1485H48.1584C54.3287 27.6911 70.8831 15.0495 90.4475 15.0495C100.38 15.0495 109.41 18.2099 116.784 23.4772L119.192 7.52475C110.614 2.8594 100.982 0 90.4475 0H90.297Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Tarif</p>
+                {% if activite.tarifActivite is null%}
+                    <span>Gratuit</span>
+                {% else %}
+                    <span>{{ activite.tarifActivite }}</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="container">
+            <div class="img-box">
+                <svg width="40" height="40" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60.2732 0C27.123 0 0 27.123 0 60.2732C0 93.4235 27.123 120.546 60.2732 120.546C93.4235 120.546 120.546 93.4235 120.546 60.2732C120.546 27.123 93.4235 0 60.2732 0ZM60.2732 15.0683C85.2866 15.0683 105.478 35.2598 105.478 60.2732C105.478 85.2866 85.2866 105.478 60.2732 105.478C35.2598 105.478 15.0683 85.2866 15.0683 60.2732C15.0683 35.2598 35.2598 15.0683 60.2732 15.0683ZM52.7391 30.1366V63.5882L55.15 65.5471L62.6842 73.0813L67.8074 78.8072L78.6566 67.9581L72.9306 62.8348L67.8074 57.7116V30.438H52.7391V30.1366Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Date</p>
+                <span> {{ activite.dateActivite | date('d/m/y') }}</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img-box">
+                <svg width="40" height="40" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M82.8757 0C75.1908 0 68.5608 5.27391 64.4924 13.2601C71.2731 21.397 75.3415 32.5475 75.3415 45.3556C75.3415 49.7254 74.8895 53.6432 73.9854 57.5609C76.8484 59.2184 79.7113 60.4239 82.8757 60.4239C95.3824 60.4239 105.478 46.8624 105.478 30.2873C105.478 13.7122 95.3824 0.150683 82.8757 0.150683V0ZM37.6708 15.0683C25.1641 15.0683 15.0683 28.6298 15.0683 45.2049C15.0683 61.7801 25.1641 75.3415 37.6708 75.3415C50.1775 75.3415 60.2732 61.7801 60.2732 45.2049C60.2732 28.6298 50.1775 15.0683 37.6708 15.0683ZM109.245 62.6842C102.766 70.369 93.8755 75.0402 83.7798 75.3415C87.8482 81.0675 90.4098 87.9989 90.4098 95.5331V105.478H120.546V80.4648C120.546 72.6292 115.875 65.8485 109.245 62.5335V62.6842ZM11.3012 77.7525C4.67117 81.0675 0 87.8482 0 95.6837V120.697H75.3415V95.6837C75.3415 87.8482 70.6704 81.0675 64.0403 77.7525C57.2596 85.7387 48.0679 90.4098 37.6708 90.4098C27.2736 90.4098 18.082 85.588 11.3012 77.7525Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Places restantes</p>
+                {% if count == 0 %}
+                    <span>Complet !</span>
+                {% else %}
+                    <span>{{ count }} / {{ activite.nbVisiteurMaxActivite }}</span>
+                {% endif %}
+            </div>
+        </div>
+        <a class="container" href="{{ path('app_programs_reservation', {id: activite.id}) }}">
+            <div class="img-box">
+                <svg width="40" height="40" viewBox="0 0 121 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M90.6071 0.892578L75.5388 15.9609L105.675 46.0975L120.744 31.0292L90.6071 0.892578ZM60.4705 31.0292L0.197266 91.3024V121.439H30.3339L90.6071 61.1658L60.4705 31.0292Z" fill="white"></path>
+                </svg>
+            </div>
+            <div class="text">
+                <p>Réserver</p>
+                <span>Réservez votre place dès maintenant, cliquer ici !</span>
+            </div>
+        </a>
+    </section>
+{% endblock %}

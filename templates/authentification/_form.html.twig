@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+    {{ form_row(form.prenom, {'label': 'Prénom', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.nom, {'label': 'Nom', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.telephone, {'label': 'Téléphone', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.adresse, {'label': 'Adresse', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.ville, {'label': 'Ville', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.codePostal, {'label': 'Code Postal', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.pays, {'label': 'Pays', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.email, {'label': 'Email', 'attr': {'class': 'form_button'}}) }}
+    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'class': 'form_button'}}) }}
+    <button type="submit" class="button">{{ submit_label }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les animaux du zoo{% endblock %}
+
+{% block preload %}
+    <link rel="preload" href="/img/animals/background-animals.jpg" as="image">
+    <link rel="preload" href="/img/logo.png" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/reservation.svg" as="image">
+    <link rel="preload" href="/img/plan.svg" as="image">
+    <link rel="preload" href="/img/animals.svg" as="image">
+    <link rel="preload" href="/img/program.svg" as="image">
+    <link rel="preload" href="/img/ticket.svg" as="image">
+    <link rel="preload" href="/img/arrow-right.svg" as="image">
+{% endblock %}
+
+{% block style %}
+    header > .frame {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 15.57%), radial-gradient(193.44% 113.09% at 0% 0%, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.00) 100%), url("/img/animals/background-animals.jpg"), lightgray 50% / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+{% endblock %}
+
+{% block body %}
+    {{ include('home/_header.html.twig', {titre: 'Les animaux du parc', description: 'Le zoo compte plus de 300 animaux !'}, with_context=false) }}
+
+    <section class="animaux" id="animaux">
+        <div class="header">
+            <p>Les animaux</p>
+            <form class="form-animals" role="search" action="{{ path('app_animals') }}" method="get">
+                <label class="input">
+                    <input type="text" id="search" placeholder="Rechercher..." name="search" value="{{ search|default('') }}">
+                    <button type="submit">
+                        <img src="/img/search.svg">
+                    </button>
+                </label>
+            </form>
+            {% if animals|length == 1 %}
+                <p>{{ animals|length }} animal</p>
+            {% elseif animals|length > 1 %}
+                <p>{{ animals|length }} animaux</p>
+            {% else %}
+                <p>Aucun animal</p>
+            {% endif %}
+        </div>
+        {% if animals %}
+        <div class="list-animals">
+            <div class="list">
+                {% for animal in animals %}
+                <div class="container">
+                    <div class="img-box">
+                        <a href="{{ path('app_show_animals', {id: animal.id}) }}"><img src="/animaux/img/{{ animal.id }}" alt="Image {{ animal.nomAnimal }}" loading="lazy"></a>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <p>{{ animal.nomAnimal|e }}</p>
+                            <div class="information">
+                                <div class="localisation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="18" viewBox="0 0 13 18"
+                                         fill="none">
+                                        <path d="M6.64418 17.0317L6.68287 17.079L6.72157 17.0317L7.02527 16.6604C7.0254 16.6603 7.02553 16.6601 7.02566 16.66C7.1307 16.5374 8.47514 14.9556 9.7944 12.9514C10.4548 11.948 11.1096 10.8378 11.5995 9.75099C12.0889 8.66511 12.4157 7.59824 12.4157 6.68288C12.4157 3.54322 9.82254 0.95 6.68287 0.95C3.5434 0.95 0.95 3.5092 0.95 6.68288C0.95 7.59826 1.27682 8.66303 1.76627 9.74628C2.25613 10.8304 2.91094 11.9375 3.57137 12.9387C4.7024 14.6534 5.8539 16.0632 6.22278 16.5148C6.28448 16.5903 6.32428 16.639 6.33844 16.6579L6.3384 16.6579L6.33974 16.6596L6.64418 17.0317ZM1.86184 6.64905C1.86184 4.00413 4.00458 1.82802 6.68287 1.82802C9.36116 1.82802 11.5039 4.00413 11.5039 6.64905C11.5039 7.35815 11.2721 8.19029 10.9037 9.06409C10.5356 9.93715 10.0328 10.848 9.49454 11.7135C8.44235 13.4053 7.25677 14.9201 6.68288 15.6348C6.10906 14.9198 4.92346 13.3968 3.87124 11.7009C3.33292 10.8333 2.83011 9.92129 2.46202 9.04979C2.09361 8.1775 1.86184 7.34963 1.86184 6.64905Z"
+                                              fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                        <path d="M4.46758 6.68298C4.46758 7.89452 5.47093 8.89788 6.68248 8.89788C7.89403 8.89788 8.89738 7.89452 8.89738 6.68298C8.89738 5.47143 7.89403 4.46807 6.68248 4.46807C5.47093 4.46807 4.46758 5.47143 4.46758 6.68298ZM5.37942 6.68298C5.37942 5.96641 5.96591 5.37991 6.68248 5.37991C7.39905 5.37991 7.98555 5.96641 7.98555 6.68298C7.98555 7.39955 7.39905 7.98604 6.68248 7.98604C5.96591 7.98604 5.37942 7.39955 5.37942 6.68298Z"
+                                              fill="#1A1A1A" stroke="#1A1A1A" stroke-width="0.1"></path>
+                                    </svg>
+                                    <span>{{ animal.lieuOriginaireAnimal|e }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span>{{ animal.descAnimal|e }}</span>
+                        <a href="{{ path('app_show_animals', {id: animal.id}) }}" class="button"><img src="img/info.svg" alt="info" loading="lazy">Plus d'informations<img
+                                    src="img/arrow-right.svg" alt="arrow-right"></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+            <div class="container">
+                <div class="information">
+                    <p>
+                        Aucun animal n'a été trouvé avec votre recherche : {{ app.request.get("search") }}
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+    </section>
+
+{% endblock %}
